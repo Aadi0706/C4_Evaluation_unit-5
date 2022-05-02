@@ -12,7 +12,7 @@ import "./App.css"
 
 function App() {
  
-
+const auth= false;
   return (
     <div className="App">
       <div>
@@ -20,13 +20,13 @@ function App() {
           Home
         </Link>
        
-        <Link className="nav-logout" to="/logout">
-          Login
-        </Link> 
-
-         <Link className="nav-login" to="/login">
+       {auth ?  <Link className="nav-logout" to="/logout">
           Logout
-        </Link> 
+       
+
+         </Link> :<Link className="nav-login" to="/login">
+          Login
+        </Link> }
       </div>
       
         {/* Routes are as follows:
@@ -38,6 +38,7 @@ function App() {
         /neworder   NewOrder  Protected
         */}
         <Routes>
+
         <Route path='/' element= {<Home/>}></Route>
         <Route path='/login' element= {<Login/>}></Route>
         <Route path='/logout' element= {<Logout/>}></Route>
